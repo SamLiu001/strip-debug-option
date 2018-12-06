@@ -1,14 +1,9 @@
 {
-	"name": "strip-debug",
+	"name": "strip-debug-option",
 	"version": "4.0.0",
 	"description": "Strip console, alert, and debugger statements from JavaScript code",
 	"license": "MIT",
-	"repository": "sindresorhus/strip-debug",
-	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
-	},
+	"repository": "SamLiu001/strip-debug-option",
 	"engines": {
 		"node": ">=6"
 	},

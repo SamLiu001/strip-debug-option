@@ -19,8 +19,10 @@ rocambole.parseOptions = {
 	}
 };
 
-module.exports = source => rocambole.moonwalk(source, node => {
+module.exports = (source,option={}) => rocambole.moonwalk(source, node => {
 	stripDebugger(node);
 	stripConsole(node);
-	stripAlert(node);
+	if(!option.skipAlert){
+		stripAlert(node);	
+	}
 });
