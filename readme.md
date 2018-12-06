@@ -1,25 +1,26 @@
-# strip-debug [![Build Status](https://travis-ci.org/sindresorhus/strip-debug.svg?branch=master)](https://travis-ci.org/sindresorhus/strip-debug)
-
 > Strip `console`, `alert`, and `debugger` statements from JavaScript code
 
 Useful for making sure you didn't leave any logging in production code.
 
-Also available as [Gulp](https://github.com/sindresorhus/gulp-strip-debug)/[Grunt](https://github.com/sindresorhus/grunt-strip-debug)/[Broccoli](https://github.com/sindresorhus/broccoli-strip-debug) plugins.
-
-
 ## Usage
 
 ```
-$ npm install strip-debug
+$ npm install strip-debug-option
 ```
 
 
 ## Usage
 
 ```js
-const stripDebug = require('strip-debug');
+const stripDebug = require('strip-debug-option');
 
-stripDebug('function foo(){console.log("foo");alert("foo");debugger;}').toString();
+const option={
+	skipDebugger:false,
+	skipConsole:false,
+	skipAlert:false
+}
+
+stripDebug('function foo(){console.log("foo");alert("foo");debugger;}',option).toString();
 //=> 'function foo(){void 0;void 0;}'
 ```
 
@@ -43,11 +44,7 @@ Type: `string` `Object`
 Pass in a string of JavaScript code or a [Esprima compatible AST](http://esprima.org).
 
 
-## Related
-
-- [strip-debug-cli](https://github.com/sindresorhus/strip-debug-cli) - API for this module
-
 
 ## License
 
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+MIT

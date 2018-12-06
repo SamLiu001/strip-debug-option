@@ -20,8 +20,12 @@ rocambole.parseOptions = {
 };
 
 module.exports = (source,option={}) => rocambole.moonwalk(source, node => {
-	stripDebugger(node);
-	stripConsole(node);
+	if(!option.skipDebugger){
+		stripDebugger(node);
+	}
+	if(!option.skipConsole){
+		stripConsole(node);
+	}
 	if(!option.skipAlert){
 		stripAlert(node);	
 	}
